@@ -1,97 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Megha Chakraborty</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.5;
-            color: #333;
-        }
-
-        .container {
-            width: 80%;
-            margin: auto;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px 25px;  /* Added equal padding on both sides */
+            line-height: 1.3;
+            font-size: 11px;
         }
 
         h1 {
-            margin: 0;
-            font-size: 36px;
+            text-align: center;
+            margin-bottom: 4px;
+            font-size: 18px;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 12px;
+            color: #333;
+            font-size: 12px;
         }
 
         .contact-info {
-            margin-top: 10px;
+            margin-bottom: 15px;
+            color: black;
             display: flex;
             justify-content: center;
             gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info i {
-            color: black;
+            font-size: 10px;
         }
 
         .contact-info a {
             color: black;
             text-decoration: none;
-            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
         }
-
-        .section {
-            margin-bottom: 20px;
+        .contact-icon {
+            width: 12px;
+            height: 12px;
+            fill: black;
         }
-
-        h2 {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-            font-size: 24px;
-            margin-bottom: 10px;
+        .contact-text {
+            font-size: 10px;
         }
-
-        .section-content {
-            font-size: 14px;
-            margin-left: 20px;
+        .section-title {
+            color: #0066cc;
+            text-transform: uppercase;
+            border-bottom: 1px solid #0066cc;
+            margin-top: 10px;         /* Increased from 8px */
+            margin-bottom: 8px;       /* Increased from 6px */
+            padding-bottom: 2px;
+            font-size: 13px;
+            margin-left: 25px;
+            margin-right: 25px;
         }
-
-        .job,
-        .project,
-        .degree {
-            margin-bottom: 10px;
+        .education-item, .experience-item {
+            margin-bottom: 6px;       /* Reduced from 8px */
+            margin-left: 25px;
+            margin-right: 25px;
+            line-height: 1.2;         /* Reduced from 1.4 */
         }
-
         ul {
-            margin-top: 5px;
-            margin-left: 15px;
-            padding-left: 20px;
-            list-style-type: disc;
+            margin-top: 2px;          /* Reduced from 4px */
+            margin-bottom: 6px;       /* Reduced from 8px */
+            padding-left: 30px;
+            line-height: 1.2;         /* Reduced from 1.3 */
         }
-
         li {
-            margin-bottom: 5px;
-            line-height: 1.3;
+            margin-bottom: 3px;       /* Increased from 2px */
+            line-height: 1.3;         /* Increased from 1.2 */
+        }
+        p {
+            margin: 6px 25px;      /* Equal margins on both sides */
+            text-align: justify;
+            line-height: 1.4;
+        }
+        strong {
+            font-size: 11px;
+            color: #000;
+        }
+        .date {
+            float: right;
+            color: #444;        /* Changed from #666 to #444 for darker shade */
+            font-size: 10px;
+            margin-right: 0;       /* Reset right margin since parent has margin */
+        }
+        br {
+            line-height: 1.1;
+        }
+        /* Keep name and subtitle centered */
+        h1, .subtitle, .contact-info {
+            text-align: center;     /* Explicitly keep these centered */
+        }
+        /* Add spacing after certifications and achievements */
+        .experience-item:last-child {
+            margin-bottom: 8px;       /* Reduced from 12px */
+        }
+        /* Languages section spacing */
+        .experience-item ul[style*="list-style: none"] {
+            padding: 0;              /* Removed padding */
+            margin: 0 25px;          /* Added horizontal margins */
+            line-height: 1.2;        /* Reduced line height */
+        }
+        /* Adjust key achievements spacing */
+        .section-title:nth-last-of-type(2) {
+            margin-top: 2px;         /* Reduced from 4px */
+            margin-bottom: 1px;      /* Reduced from 2px */
+        }
+        /* Languages title spacing */
+        .section-title:last-of-type {
+            margin-top: 1px;         /* Reduced from 2px */
+            margin-bottom: 1px;
+            border-bottom: 1px solid #0066cc;
+            margin-left: 25px;
+            margin-right: 15px;
+        }
+        /* Skillset section specific */
+        .experience-item br {
+            margin-bottom: 4px;       /* Added spacing between skill lines */
+            display: block;
+            content: "";
+        }
+        /* Projects and Certifications spacing */
+        .experience-item strong + ul {
+            margin-top: 3px;          /* Added space after project titles */
+        }
+        .experience-item:last-child ul {
+            margin: 0 15px;          /* Reduced margins */
+            padding: 0;
+            line-height: 1;          /* Reduced from 1.1 */
+        }
+        /* Adjust spacing in Certifications */
+        .section-title:nth-last-of-type(3) {
+            margin-top: 6px;         /* Reduced from 10px */
+        }
+        /* Make certification items more compact */
+        .experience-item ul li strong {
+            font-size: 10px;         /* Reduced from 11px */
+        }
+        /* Update Languages title spacing and add border */
+        .section-title:last-of-type {
+            margin-top: 1px;         /* Reduced from 2px */
+            margin-bottom: 1px;
+            border-bottom: 1px solid #0066cc;
+            margin-left: 25px;
+            margin-right: 15px;
         }
 
-        .logo {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
+        /* Make Projects section more compact */
+        .section-title[text="PROJECTS"] + .experience-item,
+        .experience-item:has(> strong:contains("Weather")),
+        .experience-item:has(> strong:contains("AI-Powered")),
+        .experience-item:has(> strong:contains("E-commerce")) {
+            margin-bottom: 3px;       /* Reduced from 4px */
+            line-height: 1.1;         /* Reduced from 1.2 */
+        }
+
+        /* Further reduce spacing in project descriptions */
+        .experience-item:has(> strong:contains("Weather")) ul,
+        .experience-item:has(> strong:contains("AI-Powered")) ul,
+        .experience-item:has(> strong:contains("E-commerce")) ul {
+            margin-top: 1px;          /* Reduced from 2px */
+            margin-bottom: 3px;       /* Reduced from 4px */
+            line-height: 1.1;         /* Reduced from 1.2 */
+            padding-left: 20px;       /* Reduced from 25px */
+        }
+
+        /* Adjust spacing for project GitHub links */
+        .experience-item strong + a {
+            margin-left: 2px;         /* Reduced from 4px */
+            font-size: 10px;
+        }
+
+        /* Make Languages section ultra-compact */
+        .section-title:last-of-type {
+            margin-top: 1px;          /* Reduced from 2px */
+            margin-bottom: 1px;
+            border-bottom: 1px solid #0066cc;
+            margin-left: 25px;
+            margin-right: 15px;
+        }
+
+        .experience-item:last-child {
+            margin: 0;                /* Remove all margins */
+        }
+
+        .experience-item:last-child ul {
+            margin: 0 15px;
+            padding: 0;
+            line-height: 1;
+        }
+
+        /* Add in the style section */
+        .experience-item ul.skillset {
+            margin-top: 0;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .experience-item ul.skillset li {
+            margin-bottom: 2px;
+        }
+
+        /* Update Languages section styling */
+        .section-title:last-of-type {
+            margin-top: 1px;          /* Reduced from 2px */
+            margin-bottom: 1px;
+            border-bottom: 1px solid #0066cc;
+            margin-right: 15px;       /* Reduced from 25px */
+        }
+
+        .experience-item:last-child {
+            margin-top: 0;            /* Remove top margin */
+            margin-bottom: 0;         /* Remove bottom margin */
+        }
+
+        .experience-item:last-child ul {
+            margin: 0 15px;           /* Reduced right margin from 25px */
+            padding: 0;
+            line-height: 1;
+        }
+
+        /* Reduce spacing in Key Achievements to make room */
+        .section-title:nth-last-of-type(2) {
+            margin-bottom: 1px;       /* Reduced from 2px */
+        }
+
+        .experience-item:nth-last-child(2) ul {
+            margin-bottom: 2px;       /* Reduced from 4px */
+        }
+
+        /* Reduce spacing in Experience section */
+        .experience-item {
+            margin-bottom: 6px;      /* Reduced from 8px */
+            line-height: 1.2;        /* Reduced from 1.4 */
+        }
+
+        .experience-item ul {
+            margin-top: 2px;         /* Reduced from 4px */
+            margin-bottom: 6px;      /* Reduced from 8px */
+            line-height: 1.2;        /* Reduced from 1.3 */
+        }
+
+        /* Make Projects section more compact */
+        .section-title[text="PROJECTS"] + .experience-item,
+        .experience-item:has(> strong:contains("Weather")),
+        .experience-item:has(> strong:contains("AI-Powered")),
+        .experience-item:has(> strong:contains("E-commerce")) {
+            margin-bottom: 3px;      /* Reduced from 4px */
+            line-height: 1.1;        /* Reduced from 1.2 */
+        }
+
+        /* Further reduce project descriptions spacing */
+        .experience-item:has(> strong:contains("Weather")) ul,
+        .experience-item:has(> strong:contains("AI-Powered")) ul,
+        .experience-item:has(> strong:contains("E-commerce")) ul {
+            margin-top: 1px;
+            margin-bottom: 3px;      /* Reduced from 4px */
+            line-height: 1.1;
+            padding-left: 20px;      /* Reduced from 25px */
+        }
+
+        /* Make Languages section ultra-compact */
+        .section-title:last-of-type {
+            margin-top: 1px;         /* Reduced from 2px */
+            margin-bottom: 1px;
+            border-bottom: 1px solid #0066cc;
+            margin-left: 25px;
+            margin-right: 15px;
+        }
+
+        .experience-item:last-child {
+            margin: 0;              /* Remove all margins */
+        }
+
+        .experience-item:last-child ul {
+            margin: 0 15px;
+            padding: 0;
+            line-height: 1;
+        }
+
+        /* Reduce spacing in sections before Languages */
+        .section-title:nth-last-of-type(2) {
+            margin-top: 2px;         /* Reduced from 4px */
+            margin-bottom: 1px;      /* Reduced from 2px */
+        }
+
+        .experience-item:nth-last-child(2) ul {
+            margin-bottom: 2px;      /* Reduced from 4px */
+        }
+
+        .experience-item:last-child ul li {
+            word-spacing: 20px;  /* Adds space between words */
+        }
+
+        /* Update the Languages section styling */
+        .experience-item:last-child {
+            margin: 0;
+        }
+
+        .experience-item:last-child ul {
+            margin: 0;
+            padding-left: 35px;  /* Increased from 25px to align with 'L' */
+            line-height: 1;
+        }
+
+        .experience-item:last-child ul li {
+            text-indent: 0;     /* Removed negative indent */
+            margin-left: 0;     /* Reset margin */
+            word-spacing: 15px; /* Adjusted spacing between languages */
+        }
+
+        .cert-link {
+            text-decoration: none;
+            color: #0066cc;
+            font-size: 9px;
+            margin-left: 2px;
+            display: inline;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>MEGHA CHAKRABORTY</h1>
+    <h1>MEGHA CHAKRABORTY</h1>
     <div class="subtitle">
         <strong>Student, BCA with Minor Specialization in Artificial Intelligence and Machine Learning</strong>
     </div>
@@ -120,9 +362,12 @@
         </a>
     </div>
 
-        <!-- Education Section -->
-        <div class="section">
-            <h2 class="section-title">EDUCATION</h2>
+    <h2 class="section-title">CAREER OBJECTIVE</h2>
+    <p>
+        A highly motivated and passionate individual with a strong interest in Artificial Intelligence and Machine Learning, committed to leveraging these technologies to build impactful and intelligent solutions. Eager to integrate data analysis and predictive modeling to support strategic decision-making, while continuously enhancing my skills in AI, ML, and data science to drive innovation and contribute meaningfully to organizational success.
+    </p>
+
+    <h2 class="section-title">EDUCATION</h2>
     <div class="education-item">
         <strong>Bachelor of Computer Application (BCA)</strong> - Institute of Innovation in Technology and Management, GGSIPU
         <span class="date">2023 - 2026</span>
@@ -133,12 +378,8 @@
         <span class="date">2010 - 2023</span>
         <div>Class X: 82% | Class XII: 86.25%</div>
     </div>
-        </div>
 
-        <!-- Experience Section -->
-        <div class="section">
-            
-              <h2 class="section-title">EXPERIENCE</h2>
+    <h2 class="section-title">EXPERIENCE</h2>
     <div class="experience-item">
         <strong>Tech Head</strong> - InternHub : The Internship and Placement Cell
         <span class="date">May'25 - Present</span>
@@ -162,10 +403,28 @@
             <li>Completed a data analyst internship, gaining hands-on experience in data cleaning, analysis, and visualization to support business decision-making.</li>
         </ul>
     </div>
-        </div>
 
-        <!-- Skills Section -->
-        <h2 class="section-title">SKILLSET</h2>
+    <h2 class="section-title">PROJECTS</h2>
+    <div class="experience-item">
+        <strong>Weather Forecast Analysis Visualization</strong> - <a href="hhttps://github.com/Megha-Chakraborty/Weather-Forecast-Analysis-Visualization">GitHub</a>
+        <ul>
+            <li>Python-based weather analysis tool using Pandas, NumPy, and Matplotlib for multi-country weather comparisons.</li>
+        </ul>
+    </div>
+    <div class="experience-item">
+        <strong>AI-Powered Chatbot</strong> - <a href="https://github.com/Megha-Chakraborty/AI-Powered-Chatbot">GitHub</a>
+        <ul>
+            <li>Interactive chatbot built with LangChain, Streamlit, and Google Gemini API for enhanced user support.</li>
+        </ul>
+    </div>
+    <div class="experience-item">
+        <strong>AI Agent</strong> - <a href="https://github.com/Megha-Chakraborty/AI-Agent-Project">GitHub</a>
+        <ul>
+            <li>An intelligent dashboard that automates web data retrieval, Google Sheets updates, and CSV processing using AI and custom search queries.</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">SKILLSET</h2>
     <div class="experience-item">
         <ul style="margin-top: 0; margin-bottom: 4px;">
             <li><strong>Programming Languages:</strong> Python, SQL, CSS, JavaScript</li>
@@ -175,9 +434,7 @@
         </ul>
     </div>
 
-        <!-- Certifications Section -->
-        <div class="section">
-           <h2 class="section-title">CERTIFICATIONS</h2>
+    <h2 class="section-title">CERTIFICATIONS</h2>
     <div class="experience-item">
         <ul>
             <li><strong>Compiler Design</strong> - Completed a course in Compiler Design from IIT Kharagpur <a href="D:\Certificates\NPTEL Compiler Design_IIT Kharagpur.jpg" class="cert-link">[↗]</a></li>
@@ -186,75 +443,21 @@
             <li><strong>Gen AI Study Jam</strong> - Hosted by Google Cloud Skills Boost where I gained knowledge on Generative AI, Responsible AI, and Large Language Models while working with Jupyter and exploring the future scope of AI <a href="D:\Certificates\Gen AI Study Jams.jpg" class="cert-link">[↗]</a></li>
         </ul>
     </div>
-        </div>
 
-        <!-- Projects Section -->
-        <div class="section">
-            <h2>PROJECTS</h2>
-            <div class="section-content">
-                <div class="project">
-                    <strong>Weather Forecast Analysis Visualization</strong> - <a href="https://github.com/Megha-Chakraborty/Weather-Forecast-Analysis-Visualization" target="_blank">GitHub</a>
-                    <ul>
-                        <li>Developed a Python project utilizing Pandas, Matplotlib, and NumPy to analyze and visualize historical weather data.</li>
-                        <li>Implemented data fetching in CSV format, created an Excel file for storage, and generated charts categorizing weather conditions across different countries and months.</li>
-                    </ul>
-                </div>
-                <div class="project">
-                    <strong>AI-Powered Chatbot</strong> - <a href="https://github.com/Megha-Chakraborty/AI-Powered-Chatbot" target="_blank">GitHub</a>
-                    <ul>
-                        <li>Developed a chatbot using LangChain and Streamlit, integrated with the Google Gemini API.</li>
-                        <li>Enhanced user interaction through advanced conversational AI capabilities, providing instant information and support.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-        <strong>AI Agent</strong> - <a href="https://github.com/Megha-Chakraborty/AI-Agent-Project">GitHub</a>
+    <h2 class="section-title">KEY ACHIEVEMENTS</h2>
+    <div class="experience-item">
         <ul>
-            <li>An intelligent dashboard that automates web data retrieval, Google Sheets updates, and CSV processing using AI and custom search queries.</li>
+            <li><strong>Olympiad Achievements:</strong> Won gold in the SOF International English Olympiad (British Council) and bronze in the SOF National Cyber Olympiad. Participated in Mathematics and Science Olympiads.</li>
+            <li><strong>Academic Excellence:</strong> Secured first position in college with a CGPA of 9.346 in the first year of BCA.</li>
+            <li><strong>Exemplary Attendance:</strong> Received cash prizes and certificates for maintaining perfect attendance from 2nd to 12th grade and continuing this record in college.</li>
+            <li><strong>Events & Hackathons:</strong> Actively contributed to cultural events and participated in various hackathons, earning certificates for event management and hackathon participation.</li>
         </ul>
     </div>
-            </div>
-        </div>
-<br>
-
-        <!-- Key Achievements Section -->
-        <div class="section">
-            <h2>KEY ACHIEVEMENTS</h2>
-            <div class="section-content">
-                <ul>
-                    <li><strong>Olympiad Achievements:</strong> Won gold in the SOF International English Olympiad in association with the British Council and bronze in the SOF National Cyber Olympiad. Participated in various Olympiads, including Mathematics and Science.</li>
-                    <li><strong>Academic Excellence:</strong> Achieved an overall CGPA of 9.346 in the first year of BCA, securing third position in the entire college.</li>
-                    <li><strong>Exemplary Attendance:</strong> Maintained perfect attendance from 2nd to 12th grade, receiving cash prizes and certificates, and continued this record in college from 1st year as well.</li>
-                    <li><strong>Cultural Events Participation:</strong> Actively participated in various cultural events, assisting with planning and execution to promote inclusivity and celebrate diversity.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Volunteering Section -->
-        <div class="section">
-            <h2>VOLUNTEERING</h2>
-            <div class="section-content">
-                <div class="job">
-                    <strong>Cultural Events Coordinator</strong><br>
-                    <em>Saai Memorial Girls School</em><br>
-                    <ul>
-                        <li>Volunteered for various cultural festivals, contributing to the organization and management of events.</li>
-                        <li>Assisted in logistical arrangements and provided support to teachers and organizers during the festivals.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Languages Section -->
-        <div class="section">
-            <h2>LANGUAGES</h2>
-            <div class="section-content">
-                <ul>
-                    <li><strong>English</strong></li>
-                    <li><strong>Hindi</strong></li>
-                    <li><strong>Bengali</strong></li>
-                </ul>
-            </div>
-        </div>
+    <h2 class="section-title">LANGUAGES</h2>
+    <div class="experience-item">
+        <ul style="list-style: none; padding-left: 35px; margin: 0;">
+            <li>• English &nbsp;&nbsp; • Hindi &nbsp;&nbsp; • Bengali</li>
+        </ul>
     </div>
 </body>
 </html>
